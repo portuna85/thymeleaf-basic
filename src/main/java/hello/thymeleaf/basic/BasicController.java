@@ -52,10 +52,30 @@ public class BasicController {
         return "basic/basic-objects";
     }
 
+    @GetMapping("/link")
+    public String link(Model model) {
+        model.addAttribute("param1'", "data1");
+        model.addAttribute("param2'", "data2");
+        return "basic/link";
+    }
+
     @GetMapping("/date")
     public String date(Model model) {
         model.addAttribute("localDateTime", LocalDateTime.now());
         return "basic/date";
+    }
+
+    @GetMapping("/literal")
+    public String literal(Model model) {
+        model.addAttribute("data", "Spring!");
+        return "basic/literal";
+    }
+
+    @GetMapping("/operation")
+    public String operation(Model model) {
+        model.addAttribute("nullData", null);
+        model.addAttribute("data", "Spring!!");
+        return "basic/operation";
     }
 
     @Component("helloBean")
@@ -67,11 +87,11 @@ public class BasicController {
 
     @Data
     static class User {
-        private String name;
+        private String username;
         private int age;
 
-        public User(String name, int age) {
-            this.name = name;
+        public User(String username, int age) {
+            this.username = username;
             this.age = age;
         }
     }
