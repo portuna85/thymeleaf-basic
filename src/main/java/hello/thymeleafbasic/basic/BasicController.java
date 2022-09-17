@@ -1,6 +1,7 @@
 package hello.thymeleafbasic.basic;
 
 import lombok.Data;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -73,6 +74,12 @@ public class BasicController {
         model.addAttribute("param1", "data1");
         model.addAttribute("param2", "data2");
         return "basic/link";
+    }
+
+    @GetMapping("literal")
+    public String literal(Model model) {
+        model.addAttribute("data", "SPRING!!");
+        return "basic/literal";
     }
 
     @Data
